@@ -1,6 +1,6 @@
 'use strict';
 
-const {By, Target, Eyes} = require('@applitools/eyes.webdriverio');
+const {By, ClassicRunner, Target, Eyes} = require('@applitools/eyes.webdriverio');
 const {Configuration} = require('@applitools/eyes-selenium');
 
 let eyes;
@@ -9,7 +9,8 @@ let driver;
 describe('applitools', function () {
 
   beforeEach(async () => {
-    eyes = new Eyes();
+    const runner = new ClassicRunner();
+    eyes = new Eyes(runner);
 
     const configuration = new Configuration();
     configuration.setAppName('Eyes Example');
@@ -23,8 +24,9 @@ describe('applitools', function () {
 
   afterEach(async () => {
     try {
-      const result = await eyes.close(false);
-      console.log('Result:', result);
+      await eyes.close(false);
+      const results = await eyes.getRunner().getAllTestResults(false);
+      console.log('Result:', results);
     } catch (e) {
       await eyes.abortIfNotClosed();
     }
