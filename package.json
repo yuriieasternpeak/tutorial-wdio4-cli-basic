@@ -1,0 +1,19 @@
+{
+  "name": "tutorial-wdio4-cli-basic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/wdio"
+  },
+  "author": "Applitools team",
+  "license": "ISC",
+  "dependencies": {
+    "@applitools/eyes.webdriverio": "^2.7.0"
+  },
+  "devDependencies": {
+    "wdio-dot-reporter": "0.0.10",
+    "wdio-mocha-framework": "^0.6.4",
+    "wdio-selenium-standalone-service": "0.0.12"
+  }
+}
